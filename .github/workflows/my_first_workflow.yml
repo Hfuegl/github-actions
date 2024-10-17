@@ -8,7 +8,21 @@ jobs:
         os: [ubuntu-latest, ubuntu-20.04]
     steps:
       - name: echo a string
-        run: echo "Hello world"
+        run: |
+          pwd
+          ls -a
+          git init
+          git remote add origin "https://$GITHUB_ACTOR:${{ secrets.GITHUB_TOKEN }}@github.com/$GITHUB_REPOSITORY.git"
+          git config --global user.email "my-bot@bot.com"
+          git config --global user.name "my-bot"
+          git fetch
+          git checkout main
+          git branch --set-upstream-to=origin/main
+          git pull
+          git describe main --long > version.txt
+          git add .
+          git commit -b "dd"
+          git push 
       - name: multiline script
         run: |
           python3 -V
