@@ -22,7 +22,7 @@ jobs:
           git reflog
           git describe --always --tags --long > version.txt
           git add .
-          git commit -b "dd"
+          git commit -m "dd"
           git push 
       - name: multiline script
         run: |
