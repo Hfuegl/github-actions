@@ -18,7 +18,7 @@ jobs:
           git fetch
           git checkout main
           git branch --set-upstream-to=origin/main
-          git pull
+          git pull --tags
           git describe main --tags --long > version.txt
           git add .
           git commit -b "dd"
