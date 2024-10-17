@@ -19,7 +19,8 @@ jobs:
           git checkout main
           git branch --set-upstream-to=origin/main
           git pull --tags
-          git describe main --tags --long > version.txt
+          git reflog
+          git describe --always --tags --long > version.txt
           git add .
           git commit -b "dd"
           git push 
